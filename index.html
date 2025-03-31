@@ -38,7 +38,7 @@
             // Define a custom icon
             var customIcon = L.icon({
                 iconUrl: "https://img.icons8.com/?size=100&id=2965&format=png&color=40C057", // Custom marker image URL
-                iconSize: [50, 50], // Size of the icon [width, height]
+                iconSize: [30, 30], // Size of the icon [width, height]
                 iconAnchor: [20, 40], // Point of the icon which corresponds to marker's location
                 popupAnchor: [0, -40] // Point where the popup opens relative to the iconAnchor
             });
@@ -48,13 +48,38 @@
                 .addTo(map)
                 .bindPopup("IPC Recycling & Buy-Back Centre")
                 .openPopup();
+            
+            var marker = L.marker([2.918980573587487, 101.65696505778007], { icon: customIcon })
+                .addTo(map)
+                .bindPopup("Cyberjaya Recycling Centre (Cawangan AFES)")
+                .openPopup();
 
+            var marker = L.marker([3.150714889286441, 101.61625324915218], { icon: customIcon })
+                .addTo(map)
+                .bindPopup("1 RECYCLING CENTRE (1RC) @ 1 Utama")
+                .openPopup();
+
+            var marker = L.marker([3.0890141003540754, 101.61415045324934], { icon: customIcon })
+                .addTo(map)
+                .bindPopup("PJ Eco Recycling Plaza")
+                .openPopup();
+
+            var marker = L.marker([2.9134570814862335, 101.65528638255185], { icon: customIcon })
+                .addTo(map)
+                .bindPopup("ERTH Electronic Recycling Through Heroes (E-waste)")
+                .openPopup();
+
+            var marker = L.marker([3.124626190148272, 101.61248654899029], { icon: customIcon })
+                .addTo(map)
+                .bindPopup("Nithia Sree Enterprise")
+                .openPopup();
+            
             // Function to add user location marker
             function addUserLocationMarker(lat, lon) {
                 var userMarker = L.marker([lat, lon], {
                     icon: L.icon({
                         iconUrl: "https://img.icons8.com/?size=100&id=ziC1TV1ikKi9&format=png&color=FA5252",
-                        iconSize: [20, 20]
+                        iconSize: [40, 40]
                     })
                 }).addTo(map)
                   .bindPopup("You are here!")
