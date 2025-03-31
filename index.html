@@ -38,15 +38,15 @@
             // Define a custom icon
             var customIcon = L.icon({
                 iconUrl: "https://img.icons8.com/?size=100&id=2965&format=png&color=40C057", // Custom marker image URL
-                iconSize: [40, 40], // Size of the icon [width, height]
+                iconSize: [50, 50], // Size of the icon [width, height]
                 iconAnchor: [20, 40], // Point of the icon which corresponds to marker's location
                 popupAnchor: [0, -40] // Point where the popup opens relative to the iconAnchor
             });
 
             // Add the custom marker to the map
-            var marker = L.marker([37.7749, -122.4194], { icon: customIcon })
+            var marker = L.marker([3.15575920654954, 101.61072819999997], { icon: customIcon })
                 .addTo(map)
-                .bindPopup("Custom Marker Here!")
+                .bindPopup("IPC Recycling & Buy-Back Centre")
                 .openPopup();
 
             // Function to add user location marker
