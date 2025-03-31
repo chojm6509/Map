@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Leaflet Map</title>
+    <!-- Use jsDelivr CDN for Leaflet -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
     <style>
         body, html { margin: 0; padding: 0; height: 100%; }
@@ -14,40 +15,32 @@
 
     <div id="map"></div>
 
+    <!-- Leaflet JS -->
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
+
     <script>
-        // Initialize the map
-        var map = L.map('map').setView([0, 0], 2); // Default view (center of the world)
+        document.addEventListener("DOMContentLoaded", function() {
+            // Ensure Leaflet is loaded
+            if (typeof L === "undefined") {
+                alert("Leaflet failed to load. Try refreshing the page or checking your internet connection.");
+                return;
+            }
 
-        // Add OpenStreetMap tiles
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; OpenStreetMap contributors'
-        }).addTo(map);
+            // Initialize the map
+            var map = L.map('map').setView([37.7749, -122.4194], 13);
 
-        // Add a marker at a default location
-        var marker = L.marker([0, 0]).addTo(map)
-            .bindPopup("Default Location")
-            .openPopup();
+            // Add OpenStreetMap tiles
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
 
-        // Get URL parameters (for Thunkable user location)
-        function getQueryParam(param) {
-            let urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
-
-        var userLat = getQueryParam("lat");
-        var userLon = getQueryParam("lon");
-
-        // If coordinates are provided in the URL, update the map
-        if (userLat && userLon) {
-            var lat = parseFloat(userLat);
-            var lon = parseFloat(userLon);
-            map.setView([lat, lon], 14); // Zoom to user location
-            marker.setLatLng([lat, lon])
-                  .bindPopup("User Location")
-                  .openPopup();
-        }
+            // Add a marker
+            var marker = L.marker([37.7749, -122.4194]).addTo(map)
+                .bindPopup("Default Location")
+                .openPopup();
+        });
     </script>
 
 </body>
 </html>
+
